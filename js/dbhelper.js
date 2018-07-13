@@ -1,3 +1,15 @@
+//Register service worker
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register('/sw.js').then(function() {
+    console.log('Registration Worked!');
+})
+.catch(function () {
+  console.log('Registration Failed!');
+});
+} else {
+  console.log('Service worker is not supported in this browser');
+}
+
 /**
  * Common database helper functions.
  */
@@ -152,6 +164,11 @@ class DBHelper {
   static imageUrlForRestaurant(restaurant) {
     return (`/img/${restaurant.photograph}`);
   }
+
+  static imageSrcsetForRestaurant(restaurant) {
+    return (`/img/${restaurant.photograph} 800w, /img/${restaurant.photographSmall} 400w`);
+  }
+  
 
   /**
    * Map marker for a restaurant.
