@@ -49,6 +49,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-align: center;
   text-transform: uppercase;
   padding: 5% 0;
+  margin-top: 80px;
 }
 /* ====================== Navigation ====================== */
 nav {
@@ -143,14 +144,14 @@ nav h1 a {
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
-  padding: 30px 15px 60px;
+  padding: 3%;
   text-align: center;
 }
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
-  margin: 15px;
+  margin: 3%;
   min-height: 380px;
   padding: 0 10%;
   text-align: center;
@@ -163,8 +164,9 @@ nav h1 a {
   margin: 0;
   width: 100%;
   min-height: 248px;
-  
 }
+
+
 #restaurants-list li h1 {
   color: #f18200;
   font-family: Arial,sans-serif;
@@ -214,7 +216,6 @@ nav h1 a {
 }
 .inside #footer {
   bottom: 0;
-  position: absolute;
   width: 100%;
   padding: 5% 0;
 }
@@ -234,7 +235,7 @@ nav h1 a {
 }
 #restaurant-address {
   font-size: 12pt;
-  margin: 10px 0px;
+  margin: 0;
 }
 #restaurant-cuisine {
   background-color: #333;
@@ -284,4 +285,107 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+
+/* media queries: min 850px*/
+
+@media screen and (min-width: 850px) {
+  #restaurants-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 96%;
+    margin: 0;
+    padding: 2%;
+    text-align: center;
+  }
+
+  #restaurants-list li {
+    width: 47%;
+    padding: 0;
+    margin: 2% 1%;
+  }
+
+  /*restaurant details*/
+
+  #restaurant-info-box {
+    display: flex; 
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  #restaurant-address {
+    width: 70%;
+    margin: 2% auto;
+  }
+
+  #restaurant-cuisine {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  #restaurant-img {
+    width: 50%;
+    margin: 2% 0 0;
+  }
+
+  #restaurant-hours {
+    width: 46%;
+    padding: 2%;
+  }
+
+  #restaurant-name {
+    width: 70%;
+    margin: 2% auto;
+
+  }
+
+
+
+}
+
+/* media queries: min 1150px */
+
+@media screen and (min-width: 1150px) {
+  #restaurants-list li {
+    width: 31%;
+    padding: 0;
+    margin: 2% 1%;
+  }
+
+  .filter-select {
+    display: block;
+  }
+  
+  .filter-options select {
+    margin: 1%;
+    width: 20%;
+  }
+
+  .filter-options h2 {
+    text-align: left;
+    margin-left: 3%;
+  }
+
+  #neighborhoods-select {
+    margin-left: 3%;
+  }
+
+}
+
+
+/* media queries: min 1500px */
+
+@media screen and (min-width: 1500px) {
+  #map {
+    height: 500px;
+  }
+
+  #restaurants-list li {
+    width: 23.7%;
+    padding: 0;
+    margin: 2% 0.5%;
+  }
+
 }
