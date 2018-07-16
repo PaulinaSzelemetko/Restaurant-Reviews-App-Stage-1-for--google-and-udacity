@@ -1,6 +1,6 @@
 self.addEventListener('install', function (event) {
     event.waitUntil(
-      caches.open('restaurant-static').then(function (cache) {
+      caches.open('restaurant-static-v1').then(function (cache) {
         return cache.addAll([
           '/css/styles.css',
           'index.html',
@@ -18,49 +18,49 @@ self.addEventListener('install', function (event) {
           '/img/7.jpg',
           '/img/8.jpg',
           '/img/9.jpg',
-          '/img/10.jpg'
+          '/img/10.jpg',
+          '/img/1small.jpg',
+          '/img/2small.jpg',
+          '/img/3small.jpg',
+          '/img/4small.jpg',
+          '/img/5small.jpg',
+          '/img/6small.jpg',
+          '/img/7small.jpg',
+          '/img/8small.jpg',
+          '/img/9small.jpg',
+          '/img/10small.jpg'
         ]);
-      }));
+      })
+    );
   });
   
+
+  self.addEventListener('activate', function(event) {
+    var cacheWhitelist = ['v2'];
   
+    event.waitUntil(
+      caches.keys().then(function(keyList) {
+        return Promise.all(keyList.map(function(key) {
+          if (cacheWhitelist.indexOf(key) === -1) {
+            return caches.delete(key);
+          }
+        }));
+      })
+    );
+  });
+  
+
   self.addEventListener('fetch', function (event) {
+      console.log('fetch!');
     event.respondWith(
       caches.match(event.request).then(function(response) {
-        if (response) {
-          return response;
-        }
-        return requestBackend(event);
-      }
-  ));
+        if (response) return response;
+        return fetch(event.request);
+      })
+    );
   });
   
-  function requestBackend(event){
-      let url = event.request.clone();
-      return fetch(url).then(function(response){
-          //if not a valid response send the error
-          if(!response || response.status !== 200 || response.type !== 'basic'){
-              return res;
-          }
+ 
+
+
   
-          var responseClone = response.clone();
-  
-          caches.open(restaurant-static).then(function(cache){
-              cache.put(event.request, response);
-          });
-  
-          return response;
-      });
-  }
-  
-  self.addEventListener('activate', function (event) {
-      event.waitUntil(
-          caches.keys().then(function(keys){
-              return Promise.all(keys.map(function(key, i){
-                  if(key !== restaurant-static){
-                      return caches.delete(keys[i]);
-                  }
-              }));
-          })
-      );
-  });
