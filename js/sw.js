@@ -36,7 +36,7 @@ self.addEventListener('install', function (event) {
   
 
   self.addEventListener('activate', function(event) {
-    var cacheWhitelist = ['v2'];
+    var cacheWhitelist = ['restaurant-static-v2'];
   
     event.waitUntil(
       caches.keys().then(function(keyList) {
@@ -48,7 +48,7 @@ self.addEventListener('install', function (event) {
       })
     );
   });
-  
+
 
   self.addEventListener('fetch', function (event) {
       console.log('fetch!');
