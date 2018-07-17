@@ -5,6 +5,16 @@ self.addEventListener('install', function (event) {
           '/css/styles.css',
           'index.html',
           'restaurant.html',
+          'restaurant.html?id=1',
+          'restaurant.html?id=2',
+          'restaurant.html?id=3',
+          'restaurant.html?id=4',
+          'restaurant.html?id=5',
+          'restaurant.html?id=6',
+          'restaurant.html?id=7',
+          'restaurant.html?id=8',
+          'restaurant.html?id=9',
+          'restaurant.html?id=10',
           '/js/dbhelper.js',
           '/js/main.js',
           '/js/restaurant_info.js',
@@ -29,7 +39,7 @@ self.addEventListener('install', function (event) {
           '/img/8small.jpg',
           '/img/9small.jpg',
           '/img/10small.jpg'
-        ]);
+          ]);
       })
     );
   });

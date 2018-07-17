@@ -167,6 +167,7 @@ class DBHelper {
   static imageSrcsetForRestaurant(restaurant) {
     return (`/img/${restaurant.photograph} 800w, /img/${restaurant.photographSmall} 400w`);
   }
+
   
 
   /**
